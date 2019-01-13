@@ -54,7 +54,12 @@ class Student
        student
      end
 
-    def self.new_from_db
+    def self.new_from_db(row)
+      new_student = Student.new  # self.new is the same as running Song.new
+      new_student.id = row[0]
+      new_student.name =  row[1]
+      new_student.grade = row[2]
+      new_student  # return the newly created instance
     end
 
     def self.find_by_name(name)
